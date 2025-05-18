@@ -10,7 +10,7 @@ export class CreateProductDto {
   @IsNumber({}, { message: 'O preço deve ser um número.' })
   price: number;
 
-  @IsNotEmpty({ message: 'A descrição é obrigatória.' })
+  // @IsNotEmpty({ message: 'A descrição é obrigatória.' })
   @IsString({ message: 'A descrição deve ser uma string.' })
   @Length(0, 255, { message: 'A descrição pode ter até 255 caracteres.' })
   description: string;
