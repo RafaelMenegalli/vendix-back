@@ -8,27 +8,35 @@ datasource db {
 }
 
 model Category {
-  id Int @id @default(autoincrement())
-  name String @unique
+  id          Int       @id @default(autoincrement())
+  name        String    @unique
   description String
-  active Boolean
-  createdAt DateTime @default(now())
-  products Product[]
+  active      Boolean
+  createdAt   DateTime  @default(now())
+  products    Product[]
 
   @@map("categories")
 }
 
 model Product {
-  id Int @id @default(autoincrement())
-  name String @unique
-  price Float
+  id          Int      @id @default(autoincrement())
+  name        String   @unique
+  price       Float
   description String
-  image String
-  active Boolean
-  createdAt DateTime @default(now())
-  categoryId Int
-  category Category @relation(fields: [categoryId], references: [id])
-
+  image       String
+  active      Boolean
+  createdAt   DateTime @default(now())
+  categoryId  Int
+  category    Category @relation(fields: [categoryId], references: [id])
 
   @@map("products")
+}
+
+model User {
+  id        Int      @id @default(autoincrement())
+  email     String   @unique
+  password  String
+  createdAt DateTime @default(now())
+
+  @@map("users")
 }
